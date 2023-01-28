@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var library = Library()
+    
     var body: some View {
         NavigationStack {
-            List(Library().sortedBooks, id: \.title) { book in
-                NavigationLink {
-                    DetailView(book: book)
-                } label: {
-                    BookRow(book: book)
-                }
+            List(library.sortedBooks, id: \.self) { book in
+                BookRow(book: book, image: $library.images[book])
 
             }
             .listStyle(.plain)
@@ -26,15 +24,20 @@ struct ContentView: View {
 
 struct BookRow: View {
     let book: Book
+    @Binding var image: Image?
     
     var body: some View {
-        HStack {
-            Book.Image(title: book.title, size: 80)
-            
-            TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
-                .lineLimit(1)
+        NavigationLink {
+            DetailView(book: book, image: $image)
+        } label: {
+            HStack {
+                Book.Image(image: image, title: book.title, size: 80, cornerRadius: 12)
+                
+                TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
+                    .lineLimit(1)
+            }
+            .padding(.vertical, 8.0)
         }
-        .padding(.vertical, 8.0)
     }
 }
 

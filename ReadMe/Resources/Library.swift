@@ -5,6 +5,8 @@
 //  Created by Nazar Ivzhenko on 28.01.2023.
 //
 
+import SwiftUI
+
 struct Library {
     var sortedBooks: [Book] {
         booksChache
@@ -18,4 +20,6 @@ struct Library {
         .init(title: "Can't Hurt Me", author: "David Goggins"),
         .init(title: "the War of Art", author: "Steven Pressfield")
     ]
+    
+    var images: [Book: Image] = [:]
 }

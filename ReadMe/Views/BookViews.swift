@@ -25,18 +25,28 @@ struct TitleAndAuthorStack: View {
 
 extension Book {
     struct Image: View {
+        let image: SwiftUI.Image?
         let title: String
         var size: CGFloat?
+        let cornerRadius: CGFloat
         
         var body: some View {
-            let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "book")
-            
-            symbol
-                .resizable()
-                .scaledToFit()
-                .frame(width: size, height: size)
-                .font(Font.title2.weight(.light))
-                .foregroundColor(.secondary.opacity(0.5))
+            if let image = image {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size, height: size)
+                    .cornerRadius(cornerRadius)
+            } else {
+                let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "book")
+                
+                symbol
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size, height: size)
+                    .font(Font.title2.weight(.light))
+                    .foregroundColor(.secondary.opacity(0.5))
+            }
         }
     }
 }
@@ -54,13 +64,20 @@ extension Image {
     }
 }
 
+extension Book.Image {
+    /// A  preview Image.
+    init(title: String) {
+        self.init(image: nil, title: title, cornerRadius: .init())
+    }
+}
+
 struct Book_Preview: PreviewProvider {
     static var previews: some View {
         VStack {
             TitleAndAuthorStack(book: .init(), titleFont: .title2, authorFont: .title3)
-            Book.Image(title: Book().title, size: 120)
-            Book.Image(title: "", size: 120)
-            Book.Image(title: "📖", size: 120)
+            Book.Image(title: Book().title)
+            Book.Image(title: "")
+            Book.Image(title: "📖")
         }
     }
 }

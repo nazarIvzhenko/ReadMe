@@ -11,6 +11,10 @@
 		B37CD2572983BACF00E29E6E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD2562983BACF00E29E6E /* ContentView.swift */; };
 		B37CD2592983BAD000E29E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B37CD2582983BAD000E29E6E /* Assets.xcassets */; };
 		B37CD25C2983BAD000E29E6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B37CD25B2983BAD000E29E6E /* Preview Assets.xcassets */; };
+		B37CD2632983C42300E29E6E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD2622983C42300E29E6E /* Book.swift */; };
+		B37CD2662983C4BF00E29E6E /* BookViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD2652983C4BF00E29E6E /* BookViews.swift */; };
+		B37CD2682983CF4F00E29E6E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD2672983CF4F00E29E6E /* Library.swift */; };
+		B37CD26C2983D3B700E29E6E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD26B2983D3B700E29E6E /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		B37CD2562983BACF00E29E6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B37CD2582983BAD000E29E6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B37CD25B2983BAD000E29E6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B37CD2622983C42300E29E6E /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B37CD2652983C4BF00E29E6E /* BookViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViews.swift; sourceTree = "<group>"; };
+		B37CD2672983CF4F00E29E6E /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		B37CD26B2983D3B700E29E6E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				B37CD2542983BACF00E29E6E /* ReadMeApp.swift */,
-				B37CD2562983BACF00E29E6E /* ContentView.swift */,
+				B37CD2642983C4AB00E29E6E /* Views */,
+				B37CD26A2983CF7C00E29E6E /* Model */,
+				B37CD2692983CF5500E29E6E /* Resources */,
 				B37CD2582983BAD000E29E6E /* Assets.xcassets */,
 				B37CD25A2983BAD000E29E6E /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				B37CD25B2983BAD000E29E6E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B37CD2642983C4AB00E29E6E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B37CD2562983BACF00E29E6E /* ContentView.swift */,
+				B37CD2652983C4BF00E29E6E /* BookViews.swift */,
+				B37CD26B2983D3B700E29E6E /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B37CD2692983CF5500E29E6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B37CD2672983CF4F00E29E6E /* Library.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B37CD26A2983CF7C00E29E6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B37CD2622983C42300E29E6E /* Book.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37CD2572983BACF00E29E6E /* ContentView.swift in Sources */,
+				B37CD26C2983D3B700E29E6E /* DetailView.swift in Sources */,
 				B37CD2552983BACF00E29E6E /* ReadMeApp.swift in Sources */,
+				B37CD2682983CF4F00E29E6E /* Library.swift in Sources */,
+				B37CD2632983C42300E29E6E /* Book.swift in Sources */,
+				B37CD2662983C4BF00E29E6E /* BookViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

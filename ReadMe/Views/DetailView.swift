@@ -13,7 +13,6 @@ struct DetailView: View {
     @Binding var image: Image?
     @State var showingImagePicker = false
     @State var showingDeletionAlert = false
-//    @State var microReviewText = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,7 +31,6 @@ struct DetailView: View {
             Divider()
                 .padding(.vertical)
             TextField("Review…", text: $book.microReview, axis: .vertical)
-//                .lineLimit(2)
             Divider()
                 .padding(.vertical)
             
@@ -75,8 +73,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            DetailView(book: .init(), image: .constant(nil))
-        }
+        DetailView(book: .init(), image: .constant(nil))
+            .previewInAllColorSchemes
     }
 }

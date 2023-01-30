@@ -8,13 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var library = Library()
+    @EnvironmentObject var library: Library
+    @State var addingNewBook = false
     
     var body: some View {
         NavigationStack {
-            List(library.sortedBooks) { book in
-                BookRow(book: book, image: $library.images[book])
+            List {
+                Button {
+                    addingNewBook = true
+                } label: {
+                    Spacer()
+                    VStack(spacing: 6) {
+                        Image(systemName: "book.circle")
+                            .font(.system(size: 60))
+                        Text("Add New Book")
+                            .font(.title2)
+                    }
+                    Spacer()
+                }
+                .buttonStyle(.borderless)
+                .padding(.vertical, 8)
+                .sheet(isPresented: $addingNewBook) {
+                    NewBookView()
+                    Spacer()
+                }
+                .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
+                    return 0
+                }
 
+                ForEach(library.sortedBooks) { book in
+                    BookRow(book: book)
+                }
             }
             .listStyle(.plain)
             .navigationTitle("My Library")
@@ -24,14 +48,14 @@ struct ContentView: View {
 
 struct BookRow: View {
     @ObservedObject var book: Book
-    @Binding var image: Image?
+    @EnvironmentObject var library: Library
     
     var body: some View {
         NavigationLink {
-            DetailView(book: book, image: $image)
+            DetailView(book: book)
         } label: {
             HStack {
-                Book.Image(image: image, title: book.title, size: 80, cornerRadius: 12)
+                Book.Image(image: library.images[book], title: book.title, size: 80, cornerRadius: 12)
                 
                 VStack(alignment: .leading) {
                     TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
@@ -53,6 +77,7 @@ struct BookRow: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Library())
             .previewInAllColorSchemes
     }
 }

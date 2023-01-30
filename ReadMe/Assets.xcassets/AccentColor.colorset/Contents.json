@@ -29,7 +29,7 @@
       ],
       "color" : {
         "platform" : "universal",
-        "reference" : "systemMintColor"
+        "reference" : "systemBrownColor"
       },
       "idiom" : "universal"
     }

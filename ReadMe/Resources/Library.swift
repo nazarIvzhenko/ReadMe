@@ -7,13 +7,20 @@
 
 import SwiftUI
 
-struct Library {
+class Library: ObservableObject {
     var sortedBooks: [Book] {
-        booksChache
+        booksCache
+    }
+    
+    /// Adds a new book at the start of library's manually-sorted books.
+    func addNewBook(_ book: Book, image: Image?) {
+        booksCache.insert(book, at: 0)
+        images[book] = image
+        
     }
     
     /// An in-memory cache of the manually-sorted books.
-    private var booksChache: [Book] = [
+    @Published private var booksCache: [Book] = [
         .init(title: "Atomic Habits", author: "James Clear", microReview: "A great book to understand how habits affect life and how to bring good habits into your life."),
         .init(title: "Essentialism", author: "Greg McKeown"),
         .init(title: "How to Win Friends & Influence People", author: "Dale Carnegie", microReview: "Valuable information."),
@@ -21,5 +28,5 @@ struct Library {
         .init(title: "the War of Art", author: "Steven Pressfield")
     ]
     
-    var images: [Book: Image] = [:]
+    @Published var images: [Book: Image] = [:]
 }

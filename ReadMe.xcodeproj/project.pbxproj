@@ -16,6 +16,8 @@
 		B37CD2682983CF4F00E29E6E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD2672983CF4F00E29E6E /* Library.swift */; };
 		B37CD26C2983D3B700E29E6E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CD26B2983D3B700E29E6E /* DetailView.swift */; };
 		B3B62B6029851465006BB93A /* PHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62B5F29851465006BB93A /* PHPickerViewController.swift */; };
+		B3B62B62298815FC006BB93A /* ReviewAndImageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62B61298815FC006BB93A /* ReviewAndImageStack.swift */; };
+		B3B62B6429881857006BB93A /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62B6329881857006BB93A /* NewBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		B37CD2672983CF4F00E29E6E /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		B37CD26B2983D3B700E29E6E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B3B62B5F29851465006BB93A /* PHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.swift; sourceTree = "<group>"; };
+		B3B62B61298815FC006BB93A /* ReviewAndImageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAndImageStack.swift; sourceTree = "<group>"; };
+		B3B62B6329881857006BB93A /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				B37CD2652983C4BF00E29E6E /* BookViews.swift */,
 				B37CD26B2983D3B700E29E6E /* DetailView.swift */,
 				B3B62B5F29851465006BB93A /* PHPickerViewController.swift */,
+				B3B62B61298815FC006BB93A /* ReviewAndImageStack.swift */,
+				B3B62B6329881857006BB93A /* NewBookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			files = (
 				B37CD2572983BACF00E29E6E /* ContentView.swift in Sources */,
 				B37CD26C2983D3B700E29E6E /* DetailView.swift in Sources */,
+				B3B62B6429881857006BB93A /* NewBookView.swift in Sources */,
+				B3B62B62298815FC006BB93A /* ReviewAndImageStack.swift in Sources */,
 				B37CD2552983BACF00E29E6E /* ReadMeApp.swift in Sources */,
 				B37CD2682983CF4F00E29E6E /* Library.swift in Sources */,
 				B37CD2632983C42300E29E6E /* Book.swift in Sources */,

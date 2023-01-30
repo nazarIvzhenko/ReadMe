@@ -10,10 +10,8 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var book: Book
-    @Binding var image: Image?
-    @State var showingImagePicker = false
-    @State var showingDeletionAlert = false
-    
+    @EnvironmentObject var library: Library
+        
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -23,57 +21,22 @@ struct DetailView: View {
                     Image(systemName: book.readMe ? "bookmark.fill" : "bookmark")
                         .font(.system(size: 48, weight: .light))
                 }
-
                 
                 TitleAndAuthorStack(book: book, titleFont: .title, authorFont: .title2)
             }
             
-            Divider()
-                .padding(.vertical)
-            TextField("Review…", text: $book.microReview, axis: .vertical)
-            Divider()
-                .padding(.vertical)
-            
-            VStack {
-                Book.Image(image: image, title: book.title, cornerRadius: 16)
-                    .scaledToFit()
-                
-                HStack {
-                    if image != nil {
-                        Spacer()
-                        Button("Delete Image") {
-                            showingDeletionAlert = true
-                        }
-                    }
-                    Spacer()
-                    Button("Update Image…") {
-                        showingImagePicker = true
-                    }
-                    Spacer()
-                }
-                .padding()
-            }
+            ReviewAndImageStack(book: book, image: $library.images[book])
             
             Spacer()
         }
         .padding()
-        .sheet(isPresented: $showingImagePicker) {
-            PHPickerViewController.View(image: $image)
-        }
-        .confirmationDialog("Delete image for \(book.title)?", isPresented: $showingDeletionAlert) {
-            Button("Delete", role: .destructive) {
-                image = nil
-            }
-        } message: {
-            Text("Delete image for \(book.title)?")
-        }
-
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(book: .init(), image: .constant(nil))
+        DetailView(book: .init())
+            .environmentObject(Library())
             .previewInAllColorSchemes
     }
 }

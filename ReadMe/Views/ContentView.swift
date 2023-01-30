@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List(library.sortedBooks, id: \.self) { book in
+            List(library.sortedBooks) { book in
                 BookRow(book: book, image: $library.images[book])
 
             }
@@ -23,7 +23,7 @@ struct ContentView: View {
 }
 
 struct BookRow: View {
-    let book: Book
+    @ObservedObject var book: Book
     @Binding var image: Image?
     
     var body: some View {
@@ -33,8 +33,17 @@ struct BookRow: View {
             HStack {
                 Book.Image(image: image, title: book.title, size: 80, cornerRadius: 12)
                 
-                TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
-                    .lineLimit(1)
+                VStack(alignment: .leading) {
+                    TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
+                    
+                    if !book.microReview.isEmpty {
+                        Spacer()
+                        Text(book.microReview)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .lineLimit(1)
             }
             .padding(.vertical, 8.0)
         }
